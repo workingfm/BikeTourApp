@@ -1,18 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ModalController } from 'ionic-angular';
 
-/*
-  Generated class for the UtilsProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UtilsProvider {
 
   constructor(
     public http: HttpClient,
+    public modalCtrl: ModalController,
     public alert: AlertController) {
     console.log('Hello UtilsProvider Provider');
   }
@@ -24,6 +19,11 @@ export class UtilsProvider {
       buttons: ['Dismiss']
     })
     alert.present();
+  }
+
+  showModal(component:any, data: any ) {
+    let profileModal = this.modalCtrl.create(component, data);
+    profileModal.present();
   }
 
 }
