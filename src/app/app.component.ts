@@ -1,12 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { StatusBar } from '@ionic-native/status-bar';
+import { TranslateService } from '@ngx-translate/core';
+import { Nav, Platform } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { TranslateService } from '@ngx-translate/core';
-import { LoginPage } from '../pages/login/login';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -30,7 +29,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Login', component: "LoginPage" },
-      { title: 'Profilo', component: "UserProfilePage" }
+      { title: 'Profilo', component: "UserProfilePage" },
+      { title: 'Prenotazioni in corso', component: "UserProfileBookingDetailPage" }
 
     ];
 
