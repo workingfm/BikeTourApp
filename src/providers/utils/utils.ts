@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AlertController, ModalController } from 'ionic-angular';
+import { AlertController, ModalController, ToastController } from 'ionic-angular';
 
 @Injectable()
 export class UtilsProvider {
@@ -8,15 +8,16 @@ export class UtilsProvider {
   constructor(
     public http: HttpClient,
     public modalCtrl: ModalController,
+    public toastCtrl: ToastController,
     public alert: AlertController) {
     console.log('Hello UtilsProvider Provider');
   }
 
-  showAlert() {
+  showAlert(title: string, subtitle: string) {
     let alert = this.alert.create({
-      title: 'Low battery',
-      subTitle: '10% of battery remaining',
-      buttons: ['Dismiss']
+      title: title,
+      subTitle: subtitle,
+      buttons: ['Ok']
     })
     alert.present();
   }
@@ -24,6 +25,16 @@ export class UtilsProvider {
   showModal(component:any, data: any ) {
     let profileModal = this.modalCtrl.create(component, data);
     profileModal.present();
+  }
+
+  showToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.present();
   }
 
 }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginProvider } from '../../providers/login/login';
 import { HomePage } from '../home/home';
 import { UtilsProvider } from '../../providers/utils/utils';
+import { RegistrationPage } from '../registration/registration';
 
 interface User {
   username: string;
@@ -37,12 +38,17 @@ export class LoginPage {
     this.loginProvider.login(this.user).subscribe(res => {
       if((<any>res).autenticated) {
         console.log(res);
+        this.utils.showToast("Login avvenuta con successo");
         this.navCtrl.setRoot(HomePage);
       }
       else {
-        this.utils.showAlert()
+        this.utils.showAlert("Errore", "Utente non abilitato")
       }
     });
+  }
+
+  doRegistration() {
+    this.navCtrl.push(RegistrationPage);
   }
 
 }

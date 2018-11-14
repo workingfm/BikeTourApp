@@ -14,6 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginProvider } from '../providers/login/login';
 import { fakeBackendProvider } from '../mock/fake-backend.service';
 import { UtilsProvider } from '../providers/utils/utils';
+import { RegistrationPageModule } from '../pages/registration/registration.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,13 +37,10 @@ export function createTranslateLoader(http: HttpClient) {
       deps: [HttpClient]
     }
   }),
-    HomePageModule
+    HomePageModule,
+    RegistrationPageModule
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    ListPage
-  ],
   providers: [
     StatusBar,
     SplashScreen,

@@ -4,7 +4,11 @@
     },
     "login": {
         "title": "",
-        "login": "Accedi"
+        "login": "Accedi",
+        "registration": "Registrati"
+    },
+    "registration": {
+        "save": "Registrati"
     }
 
 }
