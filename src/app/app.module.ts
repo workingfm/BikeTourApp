@@ -15,6 +15,8 @@ import { LoginProvider } from '../providers/login/login';
 import { fakeBackendProvider } from '../mock/fake-backend.service';
 import { UtilsProvider } from '../providers/utils/utils';
 import { RegistrationPageModule } from '../pages/registration/registration.module';
+import { TourDetailPageModule } from '../pages/tour-detail/tour-detail.module';
+import { Geolocation } from '@ionic-native/geolocation';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,7 +40,8 @@ export function createTranslateLoader(http: HttpClient) {
     }
   }),
     HomePageModule,
-    RegistrationPageModule
+    RegistrationPageModule,
+    TourDetailPageModule
   ],
   bootstrap: [IonicApp],
   providers: [
@@ -48,7 +51,8 @@ export function createTranslateLoader(http: HttpClient) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
     fakeBackendProvider,
-    UtilsProvider
+    UtilsProvider,
+    Geolocation,
   ]
 })
 export class AppModule {}

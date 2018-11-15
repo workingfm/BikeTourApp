@@ -40,6 +40,7 @@ export class LoginPage {
         console.log(res);
         this.utils.showToast("Login avvenuta con successo");
         this.navCtrl.setRoot(HomePage);
+        
       }
       else {
         this.utils.showAlert("Errore", "Utente non abilitato")

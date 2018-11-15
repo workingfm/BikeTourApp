@@ -4,57 +4,26 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addEvent()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-card>
-    <img src="assets/imgs/milan.jpeg" />
-    <ion-card-content>
-      <ion-card-title>
-        Tour Milano 1
-      </ion-card-title>
-      <p>
-        The most popular industrial group ever, and largely
-        responsible for bringing the music to a mass audience.
-      </p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col>
-        <button ion-button padding icon-start clear small class="btn-default">
-          <div>Scopri il tour</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="share-alt"></ion-icon>
-          <div>Condividi</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
-  <ion-card>
-    <img src="assets/imgs/tour.png" />
-    <ion-card-content>
-      <ion-card-title>
-        Tour Milano 2
-      </ion-card-title>
-      <p>
-        The most popular industrial group ever, and largely
-        responsible for bringing the music to a mass audience.
-      </p>
+  <ion-list>
+    <ion-card *ngFor="let tour of tours">
+      <img [src]="tour.img" />
+      <ion-card-content>
+        <ion-card-title>
+          {{ tour.title }}
+        </ion-card-title>
+        <p>
+          {{ tour.description }}
+        </p>
+      </ion-card-content>
       <ion-row>
-        <ion-col>
-          <button ion-button icon-start clear small>
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div>12 Likes</div>
+        <ion-col (click)="gotoDetail(tour)">
+          <button ion-button padding icon-start clear small class="btn-default">
+            <div>Scopri il tour</div>
           </button>
         </ion-col>
         <ion-col>
@@ -64,17 +33,7 @@
           </button>
         </ion-col>
       </ion-row>
-    </ion-card-content>
-  </ion-card>
-
-
-  {{ 'home.SEPTEMBER' | translate }}
-  {{ calendar.currentDate }}
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  <calendar [locale]="calendar.locale" [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
-    (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)" (onTimeSelected)="onTimeSelected($event)"
-    step="30" class="calendar">
-  </calendar>
+    </ion-card>
+  </ion-list>
+  
 </ion-content>
