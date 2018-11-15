@@ -21,3 +21,15 @@
     color: #fff;
     background-color: #a4d29e;
 }
+
+.menu-inner {
+	.input-wrapper {margin-left: 6rem;}
+	.item > ion-icon, .item-inner > ion-icon {
+	    min-height: 2.8rem;
+	    font-size: 2.8rem;
+	    line-height: 1;
+	    position: absolute;
+	    left: 15px;
+	    bottom: -2px;
+	}
+}
