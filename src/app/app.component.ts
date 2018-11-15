@@ -29,7 +29,6 @@ export class MyApp {
       { title: 'Login', component: "LoginPage", icon: 'log-in' },
       { title: 'Profilo', component: "UserProfilePage", icon: 'contact' },
       { title: 'Prenotazioni in corso', component: "UserProfileBookingDetailPage", icon: 'bicycle' }
-
     ];
 
   }

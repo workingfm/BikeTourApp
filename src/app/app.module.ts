@@ -16,6 +16,7 @@ import { UtilsProvider } from '../providers/utils/utils';
 import { RegistrationPageModule } from '../pages/registration/registration.module';
 import { TourDetailPageModule } from '../pages/tour-detail/tour-detail.module';
 import { Geolocation } from '@ionic-native/geolocation';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -51,6 +52,7 @@ export function createTranslateLoader(http: HttpClient) {
     fakeBackendProvider,
     UtilsProvider,
     Geolocation,
+    SocialSharing 
   ]
 })
 export class AppModule {}

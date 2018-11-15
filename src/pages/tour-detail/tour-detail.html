@@ -25,7 +25,7 @@
   </ion-refresher>
   <calendar [locale]="calendar.locale" [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
     (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)" (onTimeSelected)="onTimeSelected($event)"
-    step="30" class="calendar">
+    step="30" class="calendar" (click)="addEvent(calendar.currentDate)">
   </calendar>
 
 </ion-content>

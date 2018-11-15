@@ -69,7 +69,8 @@ export class TourDetailPage {
 
 
 
-  addEvent() {
+  addEvent(currentDate: any) {
+    console.log(currentDate);
     let modal = this.modalCtrl.create('EventModalPage', { selectedDay: this.selectedDay });
     modal.present();
     modal.onDidDismiss(data => {
@@ -91,6 +92,10 @@ export class TourDetailPage {
 
   onViewTitleChanged(title) {
     this.viewTitle = title;
+  }
+
+  test() {
+    console.log("test");
   }
 
   onEventSelected(event) {

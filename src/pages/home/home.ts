@@ -3,6 +3,7 @@ import { Globalization } from '@ionic-native/globalization';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController, ModalController, NavController, Platform } from 'ionic-angular';
 import { TourDetailPage } from '../tour-detail/tour-detail';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @Component({
@@ -18,8 +19,8 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private globalization: Globalization,
-    private translate: TranslateService
-
+    private translate: TranslateService,
+    private socialSharing: SocialSharing
   ) {
     this.tours = [{
       title: "Tour Milano 1",
@@ -54,6 +55,16 @@ export class HomePage {
       this.navCtrl.push(TourDetailPage, {
         tour: tour
       });
+  }
+
+  share(tour: any) {
+    this.socialSharing.shareViaFacebook(tour.title, tour.img, tour.title)
+    .then(() => {
+      console.log("condiviso con successo3");
+    }).catch(() => {
+      // Sharing via email is not possible
+      console.log("error ");
+    });
   }
 
 }
